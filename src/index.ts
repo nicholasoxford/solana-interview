@@ -13,9 +13,11 @@ import {
 // TASK:
 // 1. Transfer AMOUNT of spl-token TOKEN_MINT_ADDRESS from FROM_WALLET to TO_WALLET
 // 2. Use any library or helpers you want
-// 3. Bonus points for using http calls to send and confirm transactions
 // Tips: Token has 8 decimals, priority fees??
-// run npm run install && npm run start
+// run:
+// npm run install
+// npm run start
+// Bonus points for using http calls instead of solely @solana/web3.js and similar libraries
 
 async function main() {
   console.log({ FROM_KEYPAIR: FROM_KEYPAIR.publicKey.toBase58() });
