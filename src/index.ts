@@ -1,11 +1,10 @@
 import { Connection, Keypair, PublicKey } from "@solana/web3.js";
 import {
-  FROM_KEYPAIR,
   RPC_URL,
-  SECRET_KEY,
-  TOKEN_MINT_ADDRESS,
-  FROM_WALLET_TOKEN_ACCOUNT,
   FROM_WALLET,
+  FROM_WALLET_KEYPAIR,
+  FROM_WALLET_TOKEN_ACCOUNT,
+  TOKEN_MINT_ADDRESS,
   TO_WALLET,
   AMOUNT,
 } from "./constants";
@@ -20,7 +19,7 @@ import {
 // Bonus points for using http calls instead of solely @solana/web3.js and similar libraries
 
 async function main() {
-  console.log({ FROM_KEYPAIR: FROM_KEYPAIR.publicKey.toBase58() });
+  console.log({ FROM_KEYPAIR: FROM_WALLET_KEYPAIR.publicKey.toBase58() });
 
   const connection = new Connection(RPC_URL);
   const { value } = await connection.getTokenAccountBalance(

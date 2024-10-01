@@ -2,7 +2,9 @@ import { Keypair } from "@solana/web3.js";
 import bs58 from "bs58";
 
 export const SECRET_KEY = "GET_SECRET_KEY";
-export const FROM_KEYPAIR = Keypair.fromSecretKey(bs58.decode(SECRET_KEY));
+export const FROM_WALLET_KEYPAIR = Keypair.fromSecretKey(
+  bs58.decode(SECRET_KEY)
+);
 
 export const TOKEN_MINT_ADDRESS =
   "HpQBBg3qfTnugmbMz3gsUmY7pGskXvCUhy3asuW5DvMc";
