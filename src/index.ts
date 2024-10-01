@@ -19,14 +19,22 @@ import {
 // Bonus points for using http calls instead of solely @solana/web3.js and similar libraries
 
 async function main() {
-  console.log({ FROM_KEYPAIR: FROM_WALLET_KEYPAIR.publicKey.toBase58() });
-
   const connection = new Connection(RPC_URL);
   const { value } = await connection.getTokenAccountBalance(
     new PublicKey(FROM_WALLET_TOKEN_ACCOUNT)
   );
 
-  console.log(value);
+  const fromWalletPublicKey = FROM_WALLET_KEYPAIR.publicKey.toBase58();
+  const tokenMintAddress = TOKEN_MINT_ADDRESS;
+  const balance = `${value.uiAmount} ${tokenMintAddress}`;
+
+  console.log("\n=== Wallet and Token Information ===\n");
+  console.log(`From Wallet Public Key: ${fromWalletPublicKey}`);
+  console.log(`Token Mint Address:     ${tokenMintAddress}`);
+  console.log(`Token Account Balance:  ${balance}`);
+  console.log("\n=====================================\n");
 }
 
-main();
+main().catch((err) => {
+  console.error("Error running the main function:", err);
+});
