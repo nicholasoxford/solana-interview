@@ -4,7 +4,7 @@ import {
   RPC_URL,
   SECRET_KEY,
   TOKEN_MINT_ADDRESS,
-  TOKEN_ACCOUNT_ADDRESS,
+  FROM_WALLET_TOKEN_ACCOUNT,
   FROM_WALLET,
   TO_WALLET,
   AMOUNT,
@@ -24,7 +24,7 @@ async function main() {
 
   const connection = new Connection(RPC_URL);
   const { value } = await connection.getTokenAccountBalance(
-    new PublicKey(TOKEN_ACCOUNT_ADDRESS)
+    new PublicKey(FROM_WALLET_TOKEN_ACCOUNT)
   );
 
   console.log(value);
